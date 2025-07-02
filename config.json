@@ -1,0 +1,59 @@
+{
+  "$schema": "./config.schema.json",
+  "version": "1.0.0",
+  "apiKeys": {
+    "serpApi": "${SERPAPI_API_KEY}",
+    "textRazor": "${TEXTRAZOR_API_KEY}"
+  },
+  "services": {
+    "serpApi": {
+      "endpoint": "https://serpapi.com/search",
+      "defaultParams": {
+        "location": "United States",
+        "hl": "en",
+        "gl": "us",
+        "num": 10
+      }
+    },
+    "textRazor": {
+      "endpoint": "https://api.textrazor.com",
+      "defaultParams": {
+        "extractors": [
+          "entities",
+          "topics"
+        ],
+        "languageOverride": "eng"
+      }
+    }
+  },
+  "defaults": {
+    "query": {
+      "topResults": 5,
+      "keywordSuggestionsCount": 5
+    },
+    "features": {
+      "competitorAnalysis": true,
+      "entityExtraction": true,
+      "readabilityScoring": true,
+      "keywordSuggestions": true
+    },
+    "ui": {
+      "theme": "light",
+      "position": "after",
+      "selector": ".seo-widget-plus",
+      "tailwindCdn": "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css",
+      "tailwindCdnIntegrity": "sha384-6PIdA/joMgyXb/RnJ5X7PtbsF4o/HeAWcoVWuAS8TAAcMZLR8dIadlDN7tnLcl8U"
+    },
+    "performance": {
+      "requestTimeoutMs": 15000,
+      "cacheEnabled": true,
+      "cacheDurationMs": 300000
+    },
+    "logging": {
+      "level": "info"
+    },
+    "rateLimiting": {
+      "requestsPerSecond": 1
+    }
+  }
+}
